@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Keyboard Event Example</title>
+  </head>
+  <body>
+    <p id="output"></p>
+
+    <script>
+      // Get the output elemen  t
+      const output = document.getElementById('output');
+
+      // Add event listener for the 'keydown' event
+      document.addEventListener('keydown', (event) => {
+        // Get the key code and key name
+        const keyCode = event.keyCode || event.which;
+        const keyName = event.key;
+
+        // Create the message
+        const message = `You pressed '${keyName}' (KeyCode: ${keyCode})`;
+
+        // Display the message in the output element
+        output.textContent = message;
+      });
+    </script>
+  </body>
+</html>

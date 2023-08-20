@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Countries</title>
+    <style>
+        .square {
+            display: inline-block;
+            width: 45px;
+            height: 30px;
+            background-color:#f5f5f5 ;
+            text-align: center;
+            line-height: 30px;
+            margin: 0.5px;
+           
+        }
+        .container {
+      /* text-align: center; */
+      font-size:6px;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        
+        <div id="countries">
+            <h1 style="font-size: 11px;text-align: center; width:280px">World Countries List</h1>
+        </div>
+    </div>
+    <script>
+        const container = document.getElementById("countries")
+
+        const apiUrl = 'https://restcountries.com/v2/all';
+
+        fetch(apiUrl)
+            .then(response => response.json())
+            .then(data => {
+                let count = 1
+                data.forEach(country => {
+                    console.log('Country:', country.name);
+                    const square = document.createElement('span');
+                    square.textContent = country.name.slice(0, 10);     
+                    square.classList.add('square');               
+                    container.appendChild(square);
+                    if ((((count) % 6) === 0)) {
+                    container.appendChild(document.createElement('br'));
+                    }
+                    count++
+                });
+            })
+            .catch(error => console.log('Error:', error));
+
+    </script>
+</body>
+
+</html>

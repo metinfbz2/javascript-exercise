@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>30DaysOfJavaScript Challenge</title>
+    <style>
+      /* CSS styles go here */
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+      }
+      
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+      }
+      
+      h1 {
+        text-align: center;
+        color: #333;
+      }
+      
+      h2 {
+        color: #555;
+      }
+      
+      .challenge-list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
+      
+      .challenge-item {
+        width: 24%;
+        margin-bottom: 20px;
+        padding: 10px;
+        background-color: lightgreen;
+        border-radius: 5px;
+      }
+      
+      .challenge-item h3 {
+        margin: 0;
+        color: #333;
+      }
+      
+      .challenge-item details {
+        margin-top: 10px;
+      }
+      
+      .challenge-item details summary {
+        color: #555;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>30DaysOfJavaScript Challenge</h1>
+      <div id="challenges" class="challenge-list"></div>
+    </div>
+  
+    <script>
+      // JavaScript code goes here
+      const asabenehChallenges2020 = {
+  description: 'Asabeneh Yetayeh challenges',
+  challengeTitle: 'Asabeneh Yetayeh challenges',
+  challengeSubtitle: '30DaysOfJavaScript Challenge',
+  challengeYear: 2020,
+  keywords: [
+    'HTML',
+    'HTML5',
+    'CSS',
+    'CSS3',
+    'JS',
+    'JavaScript',
+    'ES6',
+    'Promise',
+    'async await',
+    'Database',
+    'React',
+    'React Hooks',
+    'Context API',
+    'React Router',
+    'Web Storage',
+    'localStorage',
+    'sessionStorage',
+    'Redux',
+    'Node',
+    'MongoDB',
+    'SQL',
+    'API',
+    'DOM',
+    'data science',
+    'MERN',
+    'Python',
+    'Flask',
+    'Statistics',
+    'Linear Algebra',
+    'Numpy',
+    'Pandas',
+    'Scipy',
+    'Scikit-learn',
+    'Visualization',
+    'D3.js'
+  ],
+  author: {
+    firstName: 'Asabeneh',
+    lastName: 'Yetayeh',
+    titles: [
+      ['🌱', 'Educator'],
+      ['💻', 'Programmer'],
+      ['🌐', 'Developer'],
+      ['🔥', 'Motivator'],
+      ['📔', 'Content Creator']
+    ],
+    qualifications: [
+      'MSc. Computer Science Ongoing',
+      'BSc. Information and Communication Eng.',
+      'MSc. Food Technology',
+      'BSc.Food Technology'
+    ],
+    socialLinks: [
+      {
+        social: 'LinkedIn',
+        url: 'https://www.linkedin.com/in/asabeneh/',
+        fontawesomeIcon: '<i class="fab fa-linkedin">'
+      },
+      {
+        social: 'Twitter',
+        url: 'https://twitter.com/Asabeneh',
+        fontawesomeIcon: '<i class="fab fa-twitter-square"></i>'
+      },
+      {
+        social: 'Github',
+        fontawesomeIcon: '<i class="fab fa-github-square"></i>',
+        url: 'https://github.com/Asabeneh'
+      },
+      {
+        social: 'DEV.to',
+        fontawesomeIcon: '',
+        url: 'https://dev.to/asabeneh'
+      }
+    ],
+    skills: [
+      'Web Development',
+      'Data Analysis',
+      'Data Visualization',
+      'Programming',
+      'Databases',
+      'Developing API'
+    ],
+    bio:
+      'I am an educator, developer, motivator and content creator. I am a life-long learner. If you like to know more about me checkout my LinkedIn or Github profile. Thank you so much for joining in my quest of changing everyone to developer.'
+  },
+  challenges: [
+    {
+      name: '30 Days Of Python',
+      topics: [
+        'Python',
+        'Flask',
+        'Numpy',
+        'Pandas',
+        'Statistics',
+        'API',
+        'MongoDB'
+      ],
+      days: 30,
+      status: 'Done',
+      questions: 'Above 500',
+      projects: 'Two',
+      interviewQns: '',
+      githubUrl: 'https://github.com/Asabeneh/30-Days-Of-Python'
+    },
+    {
+      name: '30 Days Of JavaScript',
+      topics: ['JavaScript', 'ES6', 'Promise', 'async and await', 'DOM'],
+      days: 30,
+      status: 'Ongoing',
+      questions: 'Above 500',
+      projects: 'About 30',
+      interviewQns: '',
+      githubUrl: 'https://github.com/Asabeneh/30DaysOfJavaScript'
+    },
+    {
+      name: '30 Days Of HTML & CSS',
+      topics: ['CSS', 'Flex', 'Grid', 'CSS Animation'],
+      days: 30,
+      status: 'Coming',
+      questions: 'Above 500',
+      projects: 'Two',
+      interviewQns: '',
+      githubUrl: ''
+    },
+    {
+      name: '30 Days Of React',
+      topics: [
+        'React',
+        'React Router',
+        'Redux',
+        'Context API',
+        'React Hooks',
+        'MERN'
+      ],
+      days: 30,
+      status: 'Coming',
+      questions: '',
+      projects: '',
+      interviewQns: '',
+      githubUrl: ''
+    },
+    {
+      name: '30 Days Of ReactNative',
+      topics: ['ReactNative', 'Redux'],
+      days: 30,
+      status: 'Coming',
+      questions: '',
+      projects: 'Two',
+      interviewQns: '',
+      githubUrl: ''
+    },
+    {
+      name: '30 Days Of Fullstack',
+      topics: ['React', 'Redux', 'MongoDB', 'Node', 'MERN'],
+      days: 30,
+      status: 'Coming',
+      questions: '',
+      projects: '',
+      interviewQns: '',
+      githubUrl: ''
+    },
+    {
+      name: '30 Days Of Data Analysis',
+      topics: ['Python', 'Numpy', 'Pandas', 'Statistics', 'Visualization'],
+      days: 30,
+      status: 'Coming',
+      questions: '',
+      projects: '',
+      interviewQns: '',
+      githubUrl: ''
+    },
+    {
+      name: '30 Days Of Machine Learning',
+      topics: [
+        'Python',
+        'Numpy',
+        'Pandas',
+        'Scikit-learn',
+        'Scipy',
+        'Linear Algebra',
+        'Statistics',
+        'Visualization'
+      ],
+      days: 30,
+      status: 'Coming',
+      questions: '',
+      projects: '',
+      interviewQns: '',
+      githubUrl: ''
+    }
+  ]};
+      
+      const challengesContainer = document.getElementById('challenges');
+      
+      // Function to generate the challenge items
+      function generateChallengeItems() {
+        asabenehChallenges2020.challenges.forEach(challenge => {
+          const challengeItem = document.createElement('div');
+          challengeItem.classList.add('challenge-item');
+          
+          const challengeTitle = document.createElement('h3');
+          challengeTitle.textContent = challenge.name;
+          challengeItem.appendChild(challengeTitle);
+          
+          const challengeTopics = document.createElement('details');
+          const topicsSummary = document.createElement('summary');
+          topicsSummary.textContent = 'Topics';
+          challengeTopics.appendChild(topicsSummary);
+          
+          const topicsList = document.createElement('ul');
+          challenge.topics.forEach(topic => {
+            const topicItem = document.createElement('li');
+            topicItem.textContent = topic;
+            topicsList.appendChild(topicItem);
+          });
+          challengeTopics.appendChild(topicsList);
+          
+          challengeItem.appendChild(challengeTopics);
+          
+          const challengeStatus = document.createElement('p');
+          challengeStatus.textContent = 'Status: ' + challenge.status;
+          challengeItem.appendChild(challengeStatus);
+          
+          challengesContainer.appendChild(challengeItem);
+        });
+      }
+      
+      // Call the function to generate challenge items
+      generateChallengeItems();
+    </script>
+  </body>
+</html>

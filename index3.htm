@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>React Dynamic Rendering Example</title>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+    <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+
+    <script type="text/babel">
+      // JSX element with dynamic data
+      const name = "John";
+      const count = 10;
+      const isLoggedIn = true;
+      const numbers = [1, 2, 3, 4, 5];
+      const user = {
+        name: "John",
+        age: 30,
+        city: "London"
+      };
+
+      // Inline styles
+      const styles = {
+        container: {
+          textAlign: "center",
+          fontFamily: "Arial, sans-serif"
+        },
+        heading: {
+          fontSize: "24px",
+          color: "#333"
+        },
+        listItem: {
+          listStyle: "none",
+          margin: "5px 0"
+        },
+        userInfo: {
+          marginTop: "10px",
+          border: "1px solid #ccc",
+          padding: "10px"
+        }
+      };
+
+      // Render JSX element
+      const element = (
+        <div style={styles.container}>
+          <h1 style={styles.heading}>Hello, {name}!</h1>
+          <p>The count is: {count}</p>
+          <div>{isLoggedIn ? "Logged in" : "Logged out"}</div>
+          <ul>
+            {numbers.map((number) => (
+              <li key={number} style={styles.listItem}>
+                {number}
+              </li>
+            ))}
+          </ul>
+          <div style={styles.userInfo}>
+            <p>Name: {user.name}</p>
+            <p>Age: {user.age}</p>
+            <p>City: {user.city}</p>
+          </div>
+        </div>
+      );
+
+      // Render JSX element into the DOM
+      ReactDOM.render(element, document.getElementById("root"));
+    </script>
+  </body>
+</html>

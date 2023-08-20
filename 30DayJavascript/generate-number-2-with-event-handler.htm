@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Number Squares</title>
+    <style>
+        .square {
+            display: inline-block;
+            width: 75px;
+            height: 50px;
+            background-color: #54ff9f;
+            text-align: center;
+            line-height: 50px;
+            margin: 1px;
+        }
+        .container {
+      text-align: center;
+      font-size:17px; 
+      margin-bottom: 20px;     
+    }
+  h1 {
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  input[type="text"] {
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 200px;
+    margin-right: 10px;
+  }
+
+  button {
+    padding: 8px 12px;
+    font-size: 14px;
+    border: none;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+  }  
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="container">
+            <h1 style="font-size: 18px;">Number Generator</h1>
+            <input type="text" id="number" placeholder="Enter a number"/>
+            <button id="number-generator">Generate Numbers</button>
+          </div>
+        
+        <div id="numbers"></div>
+      </div>
+
+
+    <script>   
+    
+        
+        // Get the container element
+        const container = document.getElementById('numbers')
+        const number = document.querySelector('#number')
+        const button = document.querySelector('button')
+        const numbers = document.querySelector('#numbers')
+
+        window.addEventListener("load", (event) => {
+        numbers.textContent = ''
+        number.placeholder = "Enter a number";
+        number.value = 0;
+        console.log("page is fully loaded");
+        });
+        
+        button.addEventListener('click', () => {
+            
+            numbers.textContent = ''
+            const lastNumber = number.value 
+        // Generate numbers from 1 to 100 and create the squares
+        for (let i = 0; i <= lastNumber; i++) {
+            // Create a span element for each number
+            const square = document.createElement('span');
+            square.textContent = i;
+
+            // Add the 'square' class to the element
+            
+            square.classList.add('square');
+            
+            if (i % 2 === 1){
+            square.style.backgroundColor = 'yellow'}
+
+            if (isPrime(i)){
+            square.style.backgroundColor = '#ff6a6a'}
+
+            // Append the square to the container
+            container.appendChild(square);
+
+            // Add line break after every 10 numbers
+            if ((((i + 1) % 6) === 0)) {
+                container.appendChild(document.createElement('br'));
+            }
+        }
+    })
+
+        function isPrime(number) {
+            // Check if the number is less than 2
+            if (number < 2) {
+                return false;
+            }
+
+            // Loop from 2 to the square root of the number
+            for (let i = 2; i <= Math.sqrt(number); i++) {
+                // If the number is divisible by any value in the loop, it is not prime
+                if (number % i === 0) {
+                    return false;
+                }
+            }
+            // If the number is not divisible by any value in the loop, it is prime
+            return true;
+        }
+
+
+    </script>
+</body>
+
+</html>

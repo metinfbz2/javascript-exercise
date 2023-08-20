@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>JavaScript for Everyone:DOM</title>
+    <style>
+      /* CSS styles for the different challenge statuses */
+      .completed {
+        background-color: green;
+      }
+      .ongoing {
+        background-color: yellow;
+      }
+      .coming {
+        background-color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <h1 id="year">Asabeneh Yetayeh challenges in 2020</h1>
+      <h2 id="datetime"></h2>
+      <h2>30DaysOfJavaScript Challenge</h2>
+      <ul id="challengeList">
+        <li>30DaysOfPython Challenge Done</li>
+        <li>30DaysOfJavaScript Challenge Ongoing</li>
+        <li>30DaysOfReact Challenge Coming</li>
+        <li>30DaysOfFullStack Challenge Coming</li>
+        <li>30DaysOfDataAnalysis Challenge Coming</li>
+        <li>30DaysOfReactNative Challenge Coming</li>
+        <li>30DaysOfMachineLearning Challenge Coming</li>
+      </ul>
+    </div>
+
+    <script>
+      // Function to change the year color every 1 second
+      function changeYearColor() {
+        const yearElement = document.getElementById('year');
+        setInterval(() => {
+          const randomColor = getRandomColor();
+          yearElement.style.color = randomColor;
+        }, 1000);
+      }
+
+      // Function to change the date and time every second
+      function updateDateTime() {
+        const dateTimeElement = document.getElementById('datetime');
+        setInterval(() => {
+          const currentDate = new Date();
+          const formattedDate = formatDate(currentDate);
+          dateTimeElement.textContent = formattedDate;
+        }, 1000);
+      }
+
+      // Function to format the date as "Month day, year hours:minutes:seconds"
+      function formatDate(date) {
+        const options = {
+          month: 'long',
+          day: 'numeric',
+          year: 'numeric',
+          hour: 'numeric',
+          minute: 'numeric',
+          second: 'numeric',
+        };
+        return date.toLocaleString('en-US', options);
+      }
+
+      // Function to get a random color in hexadecimal format
+      function getRandomColor() {
+        const letters = '0123456789ABCDEF';
+        let color = '#';
+        for (let i = 0; i < 6; i++) {
+          color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+      }
+
+      // Function to apply styles based on challenge status
+      function applyChallengeStyles() {
+        const challengeList = document.getElementById('challengeList');
+        const challenges = challengeList.getElementsByTagName('li');
+        for (let challenge of challenges) {
+          if (challenge.textContent.includes('Done')) {
+            challenge.classList.add('completed');
+          } else if (challenge.textContent.includes('Ongoing')) {
+            challenge.classList.add('ongoing');
+          } else {
+            challenge.classList.add('coming');
+          }
+        }
+      }
+      // Function to change the date and time background color every 10 seconds
+function changeDateTimeBackground() {
+  const dateTimeElement = document.getElementById('datetime');
+  setInterval(() => {
+    const randomColor = getRandomColor();
+    dateTimeElement.style.backgroundColor = randomColor;
+  }, 10000);
+}
+
+      // Call the functions to initiate the functionality
+      changeYearColor();
+      changeDateTimeBackground()
+      updateDateTime();
+      applyChallengeStyles();
+    </script>
+  </body>
+</html>
